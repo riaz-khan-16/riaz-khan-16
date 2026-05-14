@@ -1,1 +1,1283 @@
-<h1>Hello</h1>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Riaz Khan — Software Engineer</title>
+<meta name="description" content="Portfolio of Riaz Khan — Associate Software Engineer at Orbitax, AI/ML researcher, 100+ citations." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #f8f9fc;
+  --bg-card: #ffffff;
+  --border: #e2e4ec;
+  --border-hover: #c7c9d6;
+  --text: #111827;
+  --text-2: #4b5563;
+  --text-3: #9ca3af;
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-soft: #eef2ff;
+  --accent-glow: rgba(99,102,241,0.12);
+  --green: #10b981;
+  --green-soft: #ecfdf5;
+  --yellow: #f59e0b;
+  --yellow-soft: #fffbeb;
+  --red: #ef4444;
+  --red-soft: #fef2f2;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.04), 0 10px 24px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.06), 0 20px 40px rgba(0,0,0,0.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --max-w: 880px;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-2); text-decoration: underline; }
+
+::selection { background: var(--accent); color: #fff; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========== MAIN WRAPPER WITH SIDE BORDERS ========== */
+.main-wrap {
+  max-width: calc(var(--max-w) + 80px);
+  margin: 0 auto;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  position: relative;
+}
+.main-wrap::before,
+.main-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  pointer-events: none;
+}
+.main-wrap::before {
+  left: 40px;
+  background: repeating-linear-gradient(180deg, var(--border) 0px, var(--border) 4px, transparent 4px, transparent 12px);
+  opacity: 0.5;
+}
+.main-wrap::after {
+  right: 40px;
+  background: repeating-linear-gradient(180deg, var(--border) 0px, var(--border) 4px, transparent 4px, transparent 12px);
+  opacity: 0.5;
+}
+
+/* ========== SECTION DIVIDERS ========== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 12px 24px;
+  position: relative;
+  z-index: 1;
+}
+.section-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+}
+.section-divider .dot {
+  width: 6px; height: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--accent-glow);
+}
+.section-divider .diamond {
+  width: 8px; height: 8px;
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ========== NAV ========== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248,249,252,0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+nav .brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+nav .brand::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 50%;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+nav ul a {
+  font-size: 13px;
+  color: var(--text-2);
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+nav ul a:hover { color: var(--text); background: rgba(0,0,0,0.04); text-decoration: none; }
+
+/* ========== SECTION BACKGROUNDS ========== */
+/* hero: cool indigo tint */
+.hero              { background: linear-gradient(180deg, #fdfefe 0%, #f0f1ff 100%); }
+/* skills: soft violet */
+#skills            { background: #f9f8ff; }
+#skills .section-title::before { background: linear-gradient(180deg, #6366f1, #8b5cf6); }
+/* experience: soft green */
+#experience        { background: #f3fbf7; }
+#experience .section-title::before { background: linear-gradient(180deg, #10b981, #34d399); }
+#experience .xp-content li::before { background: linear-gradient(135deg, #10b981, #34d399); }
+#experience .xp-tags span { background: #ecfdf5; color: #059669; }
+#experience .xp-tags span:hover { background: #10b981; color: #fff; }
+#experience .xp-item:hover { background: #fff; }
+/* research: warm amber */
+#research          { background: #fffaf3; }
+#research .section-title::before { background: linear-gradient(180deg, #f59e0b, #fbbf24); }
+#research .pub-item { border-left-color: #f59e0b; }
+#research .pub-summary .st .v { background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+#research .pub-summary .st:hover { background: #fff7ed; }
+/* projects: soft purple */
+#projects          { background: #f6f3ff; }
+#projects .section-title::before { background: linear-gradient(180deg, #8b5cf6, #a78bfa); }
+#projects .project-card::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+#projects .project-card .label { color: #7c3aed; }
+#projects .project-card .stack span { background: #ede9fe; color: #7c3aed; }
+/* leetcode: cool cyan */
+#leetcode          { background: #f0f9fe; }
+#leetcode .section-title::before { background: linear-gradient(180deg, #0ea5e9, #38bdf8); }
+#leetcode .lc-avatar { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+#leetcode .lc-total-solved .big { background: linear-gradient(135deg, #0ea5e9, #38bdf8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+#leetcode .lc-topic:hover { background: #e0f2fe; border-color: #0ea5e9; color: #0284c7; }
+#leetcode .lc-topic .cnt { color: #0284c7; background: #e0f2fe; }
+/* contact: soft pink */
+.contact-section   { background: linear-gradient(180deg, #fdf2f8 0%, #fff 100%) !important; }
+
+/* ========== HERO ========== */
+.hero {
+  padding: 100px 0 80px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid #a7f3d0;
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16,185,129,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(16,185,129,0); }
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+}
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 17px;
+  color: var(--text-2);
+  max-width: 560px;
+  line-height: 1.75;
+}
+.hero-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 10px;
+  transition: all 0.25s;
+}
+.hero-links .primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px var(--accent-glow), 0 1px 2px rgba(99,102,241,0.2);
+}
+.hero-links .primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow), 0 2px 4px rgba(99,102,241,0.25); text-decoration: none; }
+.hero-links .secondary {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.hero-links .secondary:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); transform: translateY(-1px); text-decoration: none; }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 52px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.hero-stat .num {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text) 0%, var(--text-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-stat .label {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 80px 0;
+}
+section:last-of-type { border-bottom: none; }
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+}
+.section-sub {
+  font-size: 14px;
+  color: var(--text-3);
+  margin-bottom: 40px;
+  padding-left: 16px;
+}
+
+/* ========== SKILLS ========== */
+.skill-group { margin-bottom: 28px; }
+.skill-group:last-child { margin-bottom: 0; }
+.skill-group-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tag {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  transition: all 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.skill-tag:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* ========== EXPERIENCE ========== */
+.xp-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 32px;
+  padding: 24px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+.xp-item:hover {
+  background: var(--bg-card);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+.xp-date {
+  font-size: 13px;
+  color: var(--text-3);
+  padding-top: 2px;
+}
+.xp-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid #a7f3d0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.xp-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.xp-content .company {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.xp-content .type {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+.xp-content ul {
+  list-style: none;
+}
+.xp-content li {
+  font-size: 14px;
+  color: var(--text-2);
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+  line-height: 1.65;
+}
+.xp-content li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 5px; height: 5px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 50%;
+}
+.xp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.xp-tags span {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  border-radius: 5px;
+  color: var(--accent);
+  transition: all 0.2s;
+}
+.xp-tags span:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ========== PUBLICATIONS ========== */
+.pub-summary {
+  display: flex;
+  gap: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.pub-summary .st {
+  text-align: center;
+  flex: 1;
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.pub-summary .st:last-child { border-right: none; }
+.pub-summary .st:hover { background: var(--accent-soft); }
+.pub-summary .st .v {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.pub-summary .st .l {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.pub-item {
+  padding: 24px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  border-left: 3px solid var(--accent);
+  transition: all 0.3s;
+}
+.pub-item:hover {
+  background: var(--bg-card);
+  border-color: var(--border);
+  border-left-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.pub-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+.pub-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.pub-meta .badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.pub-meta .badge.q1 {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+}
+.pub-meta .badge.conf {
+  background: var(--yellow-soft);
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.pub-desc {
+  font-size: 14px;
+  color: var(--text-3);
+  line-height: 1.65;
+}
+
+/* ========== PROJECTS ========== */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.project-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.project-card:hover::before { transform: scaleX(1); }
+.project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.project-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.project-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.project-card p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+.project-card .stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.project-card .stack span {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  border-radius: 5px;
+  color: var(--accent);
+}
+.project-card .link {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.project-card .link:hover { gap: 8px; text-decoration: none; }
+
+/* ========== LEETCODE ========== */
+.lc-card {
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.lc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.lc-header .lc-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.lc-avatar {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.lc-header .lc-name { font-weight: 600; font-size: 16px; }
+.lc-header .lc-handle { font-size: 12px; color: var(--text-3); }
+.lc-total-solved {
+  text-align: right;
+}
+.lc-total-solved .big {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lc-total-solved .label {
+  font-size: 11px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.lc-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.lc-bar-row {
+  display: grid;
+  grid-template-columns: 68px 1fr 44px;
+  gap: 14px;
+  align-items: center;
+  font-size: 13px;
+}
+.lc-bar-label { font-weight: 600; }
+.lc-bar-label.easy { color: var(--green); }
+.lc-bar-label.medium { color: var(--yellow); }
+.lc-bar-label.hard { color: var(--red); }
+.lc-bar-track {
+  height: 10px;
+  background: #f0f1f5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.lc-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 0;
+}
+.lc-bar-fill.easy { background: linear-gradient(90deg, #34d399, var(--green)); }
+.lc-bar-fill.medium { background: linear-gradient(90deg, #fbbf24, var(--yellow)); }
+.lc-bar-fill.hard { background: linear-gradient(90deg, #f87171, var(--red)); }
+.lc-bar-count {
+  text-align: right;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.lc-topics-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+}
+.lc-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lc-topic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: #f0f1f5;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+  transition: all 0.25s;
+}
+.lc-topic:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+.lc-topic .cnt {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ========== CONTACT ========== */
+.contact-section {
+  text-align: center;
+  padding: 100px 0;
+}
+.contact-section h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+.contact-section h2 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contact-section p {
+  color: var(--text-2);
+  font-size: 16px;
+  margin-bottom: 36px;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--bg-card);
+  transition: all 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.contact-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  padding: 36px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-3);
+  background: #fff;
+}
+
+/* ========== ANIMATIONS ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+.fade-in:nth-child(2) { transition-delay: 0.05s; }
+.fade-in:nth-child(3) { transition-delay: 0.1s; }
+.fade-in:nth-child(4) { transition-delay: 0.15s; }
+.fade-in:nth-child(5) { transition-delay: 0.2s; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 32px; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .xp-item { grid-template-columns: 1fr; gap: 8px; padding: 20px 16px; }
+  .project-grid { grid-template-columns: 1fr; }
+  nav ul { display: none; }
+  .pub-summary { flex-direction: row; flex-wrap: wrap; }
+  .pub-summary .st { flex: 1 1 calc(50% - 1px); border-bottom: 1px solid var(--border); }
+  .pub-summary .st:nth-child(2) { border-right: none; }
+  .pub-summary .st:nth-child(3), .pub-summary .st:nth-child(4) { border-bottom: none; }
+  .lc-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .lc-total-solved { text-align: left; }
+  .contact-links { flex-direction: column; align-items: center; }
+  .hero-links { flex-direction: column; }
+  .hero-links a { justify-content: center; }
+  .section-title { font-size: 20px; }
+  .pub-item { padding: 20px 16px; }
+  .contact-section h2 { font-size: 30px; }
+  .main-wrap { border-left: none; border-right: none; }
+  .main-wrap::before, .main-wrap::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="brand">Riaz Khan</div>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#leetcode">LeetCode</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="main-wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+    <h1>Hi, I'm Riaz Khan.<br/>I <span>build with AI.</span></h1>
+    <p>Associate Software Engineer at Orbitax. I build backend systems in C#/.NET and research-grade ML with Python, specializing in LLMs, RAG, agentic AI, and MCP servers.</p>
+    <div class="hero-links">
+      <a class="primary" href="https://www.linkedin.com/in/riaz-khan-17b236192/" target="_blank">Get in touch &rarr;</a>
+      <a class="secondary" href="https://github.com/riaz-khan-16" target="_blank">View GitHub</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">6+</div>
+        <div class="label">Years Building</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="label">Publications</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">100+</div>
+        <div class="label">Citations</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">2</div>
+        <div class="label">Q1 Journals</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title fade-in">Skills &amp; Stack</h2>
+    <p class="section-sub fade-in">Technologies I work with daily</p>
+
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C#</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Backend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">.NET</span>
+        <span class="skill-tag">ASP.NET Web API</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">REST APIs</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">AI / ML</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Large Language Models</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">MCP Servers</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Agentic AI</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Data &amp; Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL Server</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Docker</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Frontend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Angular</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title fade-in">Work Experience</h2>
+    <p class="section-sub fade-in">Where I've contributed professionally</p>
+
+    <div class="xp-item fade-in">
+      <div class="xp-date">
+        Dec 2025 &mdash; Present
+        <br/><span class="xp-current">Current</span>
+      </div>
+      <div class="xp-content">
+        <h3>Associate Software Engineer</h3>
+        <div class="company">Orbitax</div>
+        <div class="type">Full-time &middot; Dhaka, BD</div>
+        <ul>
+          <li>Building tax-compliance platform backend with C# and ASP.NET Web API.</li>
+          <li>Designing service layers, data contracts, and integration endpoints for enterprise workloads.</li>
+        </ul>
+        <div class="xp-tags">
+          <span>C#</span><span>ASP.NET Web API</span><span>.NET</span><span>SQL</span><span>REST</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xp-item fade-in">
+      <div class="xp-date">Jan 2024 &mdash; Nov 2025</div>
+      <div class="xp-content">
+        <h3>Software Engineer</h3>
+        <div class="company">MyMedicalHub International</div>
+        <div class="type">Contract &middot; Dhaka, BD</div>
+        <ul>
+          <li>Built Gait Video Analyzer using HRNet and OpenCV for clinical motion assessment.</li>
+          <li>Engineered Medical Report Generation system powered by GPT models.</li>
+          <li>Shipped an end-user chatbot for patient interaction and triage.</li>
+          <li>Provided customer engineering support across deployments.</li>
+        </ul>
+        <div class="xp-tags">
+          <span>Python</span><span>HRNet</span><span>OpenCV</span><span>GPT</span><span>LLM</span><span>Django</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xp-item fade-in">
+      <div class="xp-date">Dec 2021 &mdash; Dec 2022</div>
+      <div class="xp-content">
+        <h3>Math Expert</h3>
+        <div class="company">Photomath</div>
+        <div class="type">Part-time &middot; Remote</div>
+        <ul>
+          <li>Authored solutions for 542 mathematical problems on the marketplace.</li>
+          <li>Peer-reviewed 800+ solutions for rigor and pedagogical clarity.</li>
+          <li>Used LaTeX and GeoGebra to produce publication-grade write-ups.</li>
+        </ul>
+        <div class="xp-tags">
+          <span>LaTeX</span><span>GeoGebra</span><span>Mathematics</span><span>Statistics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xp-item fade-in">
+      <div class="xp-date">Mar 2020 &mdash; Dec 2022</div>
+      <div class="xp-content">
+        <h3>Research Assistant</h3>
+        <div class="company">CSRG, RUET</div>
+        <div class="type">Part-time &middot; Rajshahi, BD</div>
+        <ul>
+          <li>Developed hybrid AI models for transformer health assessment.</li>
+          <li>Built deep-learning pipelines for transformer fault detection and classification.</li>
+          <li>Authored journal papers on microgrid, smart-grid, and VPP control systems.</li>
+          <li>Produced work leading to 100+ citations across Q1-ranked journals.</li>
+        </ul>
+        <div class="xp-tags">
+          <span>Machine Learning</span><span>Deep Learning</span><span>Signal Processing</span><span>Research</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xp-item fade-in">
+      <div class="xp-date">Jul 2018 &mdash; Sep 2018</div>
+      <div class="xp-content">
+        <h3>Machine Learning Intern</h3>
+        <div class="company">Gaze</div>
+        <div class="type">Internship &middot; Dhaka, BD</div>
+        <ul>
+          <li>Built a face-recognition system for automated attendance tracking.</li>
+          <li>Integrated AI inference with microcontroller hardware for edge deployment.</li>
+        </ul>
+        <div class="xp-tags">
+          <span>Computer Vision</span><span>Embedded</span><span>Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <h2 class="section-title fade-in">Research &amp; Publications</h2>
+    <p class="section-sub fade-in">Published work in AI and power systems</p>
+
+    <div class="pub-summary fade-in">
+      <div class="st"><div class="v">3</div><div class="l">Papers</div></div>
+      <div class="st"><div class="v">100+</div><div class="l">Citations</div></div>
+      <div class="st"><div class="v">2</div><div class="l">Q1 Journals</div></div>
+      <div class="st"><div class="v">3.82</div><div class="l">Max IF</div></div>
+    </div>
+
+    <div class="pub-item fade-in">
+      <h3>Power Transformer Health Condition Evaluation: A Deep Generative Model Aided Intelligent Framework</h3>
+      <div class="pub-meta">
+        <span>2023</span>
+        <span>&middot;</span>
+        <span>Electric Power System Research, Elsevier</span>
+        <span class="badge q1">Q1</span>
+        <span>&middot;</span>
+        <span>IF: 3.818</span>
+      </div>
+      <p class="pub-desc">A deep generative model-aided intelligent framework for evaluating power transformer health. Combines test-series analysis with learned representations to derive a robust health index.</p>
+    </div>
+
+    <div class="pub-item fade-in">
+      <h3>Energy Sustainability &mdash; Survey on Technology and Control of Microgrid, Smart Grid and Virtual Power Plant</h3>
+      <div class="pub-meta">
+        <span>2021</span>
+        <span>&middot;</span>
+        <span>IEEE Access</span>
+        <span class="badge q1">Q1</span>
+        <span>&middot;</span>
+        <span>IF: 3.160</span>
+      </div>
+      <p class="pub-desc">A comprehensive survey of microgrid, smart-grid, and virtual power plant architectures examining control strategies for renewable-energy integration and grid security.</p>
+    </div>
+
+    <div class="pub-item fade-in">
+      <h3>Deep Learning Techniques for Transmission Line Fault Diagnosis: A Comparative Evaluation</h3>
+      <div class="pub-meta">
+        <span>2018</span>
+        <span>&middot;</span>
+        <span>IEEE Conference</span>
+        <span class="badge conf">Conference</span>
+      </div>
+      <p class="pub-desc">Compares diagnostic techniques for high-voltage transmission lines: a multi-level RBM for microgrid fault diagnosis, and a self-attention CNN for rapid fault detection and classification.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title fade-in">Personal Projects</h2>
+    <p class="section-sub fade-in">Side projects I've built and shipped</p>
+
+    <div class="project-grid">
+      <div class="project-card fade-in">
+        <div class="label">Open Source</div>
+        <h3>AI Agent with MCP Server</h3>
+        <p>A local-first AI agent that talks to tools, databases, and APIs through a Model Context Protocol server &mdash; orchestrated by Ollama-hosted open models.</p>
+        <div class="stack">
+          <span>.NET</span><span>C#</span><span>Ollama</span><span>MCP</span><span>Local LLM</span>
+        </div>
+        <a class="link" href="https://github.com/riaz-khan-16" target="_blank">View source &rarr;</a>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="label">Full-Stack</div>
+        <h3>TeamSync &mdash; Real-Time Collaboration</h3>
+        <p>A real-time team collaboration system for task assignment, presence, and channel-based updates with SignalR live sync.</p>
+        <div class="stack">
+          <span>.NET</span><span>C#</span><span>SignalR</span><span>SQL</span><span>WebSockets</span>
+        </div>
+        <a class="link" href="https://github.com/riaz-khan-16" target="_blank">View source &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- LEETCODE -->
+<section id="leetcode">
+  <div class="container">
+    <h2 class="section-title fade-in">Problem Solving</h2>
+    <p class="section-sub fade-in">LeetCode progress and focus areas</p>
+
+    <div class="lc-card fade-in" id="lc-card">
+      <div class="lc-header">
+        <div class="lc-profile">
+          <div class="lc-avatar">RK</div>
+          <div>
+            <div class="lc-name">Riaz Khan</div>
+            <div class="lc-handle">@riaz-khan-16 &middot; LeetCode</div>
+          </div>
+        </div>
+        <div class="lc-total-solved">
+          <div class="big" id="lc-total">0</div>
+          <div class="label">Problems Solved</div>
+        </div>
+      </div>
+
+      <div class="lc-bars">
+        <div class="lc-bar-row">
+          <span class="lc-bar-label easy">Easy</span>
+          <div class="lc-bar-track"><div class="lc-bar-fill easy" id="lc-easy"></div></div>
+          <span class="lc-bar-count" id="lc-easy-n">0</span>
+        </div>
+        <div class="lc-bar-row">
+          <span class="lc-bar-label medium">Medium</span>
+          <div class="lc-bar-track"><div class="lc-bar-fill medium" id="lc-med"></div></div>
+          <span class="lc-bar-count" id="lc-med-n">0</span>
+        </div>
+        <div class="lc-bar-row">
+          <span class="lc-bar-label hard">Hard</span>
+          <div class="lc-bar-track"><div class="lc-bar-fill hard" id="lc-hard"></div></div>
+          <span class="lc-bar-count" id="lc-hard-n">0</span>
+        </div>
+      </div>
+
+      <div class="lc-topics-title">Top Topics</div>
+      <div class="lc-topics" id="lc-topics"></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2 class="fade-in">Let's build something <span>together.</span></h2>
+    <p class="fade-in">I'm always open to interesting conversations and opportunities.</p>
+    <div class="contact-links fade-in">
+      <a href="https://www.linkedin.com/in/riaz-khan-17b236192/" target="_blank">LinkedIn &rarr;</a>
+      <a href="https://github.com/riaz-khan-16" target="_blank">GitHub &rarr;</a>
+      <a href="#">Google Scholar &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; 2026 Riaz Khan &middot; Dhaka, Bangladesh
+  </div>
+</footer>
+
+</div><!-- end main-wrap -->
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// LeetCode data — update with your real numbers
+const lc = { easy: 120, medium: 85, hard: 25 };
+const total = lc.easy + lc.medium + lc.hard;
+const topics = [
+  { name: 'Arrays & Hashing', count: 45 },
+  { name: 'Dynamic Programming', count: 30 },
+  { name: 'Trees & Graphs', count: 28 },
+  { name: 'Two Pointers', count: 22 },
+  { name: 'Stack & Queue', count: 20 },
+  { name: 'Binary Search', count: 18 },
+  { name: 'Linked Lists', count: 15 },
+  { name: 'Sliding Window', count: 12 },
+];
+
+const lcObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+
+    // Count up total
+    let cur = 0;
+    const step = Math.ceil(total / 50);
+    const timer = setInterval(() => {
+      cur = Math.min(cur + step, total);
+      document.getElementById('lc-total').textContent = cur;
+      if (cur >= total) clearInterval(timer);
+    }, 20);
+
+    // Bars
+    setTimeout(() => {
+      document.getElementById('lc-easy').style.width = (lc.easy / 800 * 100) + '%';
+      document.getElementById('lc-easy-n').textContent = lc.easy;
+    }, 200);
+    setTimeout(() => {
+      document.getElementById('lc-med').style.width = (lc.medium / 800 * 100) + '%';
+      document.getElementById('lc-med-n').textContent = lc.medium;
+    }, 400);
+    setTimeout(() => {
+      document.getElementById('lc-hard').style.width = (lc.hard / 800 * 100) + '%';
+      document.getElementById('lc-hard-n').textContent = lc.hard;
+    }, 600);
+
+    lcObs.unobserve(e.target);
+  });
+}, { threshold: 0.3 });
+lcObs.observe(document.getElementById('lc-card'));
+
+// Render topics
+const topicsEl = document.getElementById('lc-topics');
+topics.forEach(t => {
+  const d = document.createElement('div');
+  d.className = 'lc-topic';
+  d.innerHTML = `<span>${t.name}</span><span class="cnt">${t.count}</span>`;
+  topicsEl.appendChild(d);
+});
+</script>
+
+</body>
+</html>
