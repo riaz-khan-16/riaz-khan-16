@@ -165,6 +165,29 @@ nav ul a:hover { color: var(--text); background: rgba(0,0,0,0.04); text-decorati
 /* ========== SECTION BACKGROUNDS ========== */
 /* hero: cool indigo tint */
 .hero              { background: linear-gradient(180deg, #fdfefe 0%, #f0f1ff 100%); }
+/* about: warm slate */
+#about             { background: #f8f9fc; }
+#about .section-title::before { background: linear-gradient(180deg, #475569, #64748b); }
+.about-text {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-2);
+  max-width: 760px;
+}
+.about-text .about-line {
+  display: inline;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-text .about-line.revealed {
+  opacity: 1;
+  filter: none;
+}
+.about-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
 /* skills: soft violet */
 #skills            { background: #f9f8ff; }
 #skills .section-title::before { background: linear-gradient(180deg, #6366f1, #8b5cf6); }
@@ -172,21 +195,21 @@ nav ul a:hover { color: var(--text); background: rgba(0,0,0,0.04); text-decorati
 #experience        { background: #f3fbf7; }
 #experience .section-title::before { background: linear-gradient(180deg, #10b981, #34d399); }
 /* education: soft teal */
-#education         { background: #f0fdfa; }
-#education .section-title::before { background: linear-gradient(180deg, #14b8a6, #2dd4bf); }
+#education         { background: #fef9f0; }
+#education .section-title::before { background: linear-gradient(180deg, #d97706, #f59e0b); }
 #education .edu-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 14px; transition: all 0.3s; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
-#education .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #14b8a6, #2dd4bf); border-radius: 2px 0 0 2px; }
+#education .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #d97706, #f59e0b); border-radius: 2px 0 0 2px; }
 #education .edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 #education .edu-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 6px; }
 #education .edu-degree { font-size: 17px; font-weight: 600; color: var(--text); }
 #education .edu-date { font-size: 12px; color: var(--text-3); white-space: nowrap; padding-top: 3px; }
-#education .edu-school { font-size: 14px; font-weight: 500; color: #0d9488; margin-bottom: 4px; }
+#education .edu-school { font-size: 14px; font-weight: 500; color: #b45309; margin-bottom: 4px; }
 #education .edu-location { font-size: 12px; color: var(--text-3); margin-bottom: 10px; }
 #education .edu-detail { font-size: 14px; color: var(--text-2); line-height: 1.65; padding-left: 16px; position: relative; margin-bottom: 4px; }
-#education .edu-detail::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; background: linear-gradient(135deg, #14b8a6, #2dd4bf); border-radius: 50%; }
+#education .edu-detail::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; background: linear-gradient(135deg, #d97706, #f59e0b); border-radius: 50%; }
 #education .edu-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-#education .edu-tags span { font-size: 11px; font-weight: 500; padding: 4px 10px; background: #ccfbf1; border-radius: 5px; color: #0d9488; transition: all 0.2s; }
-#education .edu-tags span:hover { background: #14b8a6; color: #fff; }
+#education .edu-tags span { font-size: 11px; font-weight: 500; padding: 4px 10px; background: #fef3c7; border-radius: 5px; color: #b45309; transition: all 0.2s; }
+#education .edu-tags span:hover { background: #d97706; color: #fff; }
 /* research: warm amber */
 #research          { background: #fffaf3; }
 #research .section-title::before { background: linear-gradient(180deg, #f59e0b, #fbbf24); }
@@ -563,6 +586,21 @@ section:last-of-type { border-bottom: none; }
   border-radius: 50%;
 }
 .xp-content li:last-child { margin-bottom: 0; }
+.xp-item .xp-header,
+.xp-item .xp-meta,
+.xp-item .xp-content li,
+.xp-item .xp-tags {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.xp-item.visible .xp-header,
+.xp-item.visible .xp-meta,
+.xp-item.visible .xp-content li,
+.xp-item.visible .xp-tags {
+  opacity: 1;
+  transform: none;
+}
 .xp-tags {
   display: flex;
   flex-wrap: wrap;
@@ -998,6 +1036,7 @@ footer {
   <div class="container">
     <div class="brand">Riaz Khan</div>
     <ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
@@ -1041,6 +1080,24 @@ footer {
     </div>
   </div>
 </header>
+
+<div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title fade-in">About Me</h2>
+    <p class="section-sub fade-in">A brief introduction</p>
+    <div class="about-text fade-in" id="about-text">
+      <span class="about-line">I'm <strong>Riaz Khan</strong>, a software engineer based in Dhaka, Bangladesh, with over six years of experience spanning backend development, machine learning research, and AI engineering. </span>
+      <span class="about-line">Currently, I work at <strong>Orbitax</strong> building enterprise tax-compliance systems using <strong>C#/.NET</strong>, designing scalable service layers and integration endpoints. </span>
+      <span class="about-line">Previously, I spent nearly two years at <strong>MyMedicalHub International</strong> where I built clinical AI tools&mdash;including a gait analyzer with HRNet, a GPT-powered medical report generator, and a patient-facing chatbot. </span>
+      <span class="about-line">My research background is rooted in deep learning and signal processing. As a research assistant at <strong>RUET</strong>, I developed hybrid AI models for power transformer health assessment and published <strong>3 papers</strong> in Q1/Q2 journals, accumulating <strong>100+ citations</strong>. </span>
+      <span class="about-line">I specialize in <strong>LLMs, RAG pipelines, agentic AI, and MCP servers</strong>&mdash;bridging the gap between research-grade ML and production-ready software. </span>
+      <span class="about-line">Outside of work, I enjoy competitive problem solving on LeetCode and exploring new tools at the intersection of AI and developer productivity.</span>
+    </div>
+  </div>
+</section>
 
 <div class="section-divider"><span class="line"></span><span class="dot"></span><span class="diamond"></span><span class="dot"></span><span class="line"></span></div>
 
@@ -1521,6 +1578,20 @@ footer {
   statsObs.observe(statsWrap);
 })();
 
+// About paragraph sentence-by-sentence reveal
+const aboutObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const lines = e.target.querySelectorAll('.about-line');
+    lines.forEach((line, i) => {
+      setTimeout(() => line.classList.add('revealed'), i * 250);
+    });
+    aboutObs.unobserve(e.target);
+  });
+}, { threshold: 0.2 });
+const aboutEl = document.getElementById('about-text');
+if (aboutEl) aboutObs.observe(aboutEl);
+
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1531,6 +1602,20 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Experience staggered reveal
+const xpObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const children = e.target.querySelectorAll('.xp-header, .xp-meta, .xp-content li, .xp-tags');
+    children.forEach((child, i) => {
+      child.style.transitionDelay = `${i * 80}ms`;
+    });
+    e.target.classList.add('visible');
+    xpObs.unobserve(e.target);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.xp-item').forEach(el => xpObs.observe(el));
 
 // LeetCode data — update with your real numbers
 const lc = { easy: 120, medium: 85, hard: 25 };
