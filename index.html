@@ -30,7 +30,7 @@
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.04), 0 10px 24px rgba(0,0,0,0.06);
   --shadow-lg: 0 8px 16px rgba(0,0,0,0.06), 0 20px 40px rgba(0,0,0,0.08);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font: 'Times New Roman', Times, Georgia, serif;
   --max-w: 880px;
   --radius: 12px;
 }
@@ -197,19 +197,112 @@ nav ul a:hover { color: var(--text); background: rgba(0,0,0,0.04); text-decorati
 /* education: soft teal */
 #education         { background: #fef9f0; }
 #education .section-title::before { background: linear-gradient(180deg, #d97706, #f59e0b); }
-#education .edu-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 14px; transition: all 0.3s; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
-#education .edu-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #d97706, #f59e0b); border-radius: 2px 0 0 2px; }
-#education .edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-#education .edu-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 6px; }
-#education .edu-degree { font-size: 17px; font-weight: 600; color: var(--text); }
-#education .edu-date { font-size: 12px; color: var(--text-3); white-space: nowrap; padding-top: 3px; }
-#education .edu-school { font-size: 14px; font-weight: 500; color: #b45309; margin-bottom: 4px; }
-#education .edu-location { font-size: 12px; color: var(--text-3); margin-bottom: 10px; }
-#education .edu-detail { font-size: 14px; color: var(--text-2); line-height: 1.65; padding-left: 16px; position: relative; margin-bottom: 4px; }
-#education .edu-detail::before { content: ''; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; background: linear-gradient(135deg, #d97706, #f59e0b); border-radius: 50%; }
-#education .edu-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-#education .edu-tags span { font-size: 11px; font-weight: 500; padding: 4px 10px; background: #fef3c7; border-radius: 5px; color: #b45309; transition: all 0.2s; }
-#education .edu-tags span:hover { background: #d97706; color: #fff; }
+.edu-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.edu-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #d97706, #f59e0b);
+  border-radius: 2px 0 0 2px;
+}
+.edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.edu-degree {
+  font-size: 17px;
+  font-weight: 650;
+  color: var(--text);
+  line-height: 1.3;
+}
+.edu-date {
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+.edu-school {
+  font-size: 14px;
+  font-weight: 500;
+  color: #b45309;
+  margin-bottom: 2px;
+}
+.edu-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+.edu-meta .dot {
+  width: 3px; height: 3px;
+  background: var(--text-3);
+  border-radius: 50%;
+}
+.edu-detail {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 5px;
+}
+.edu-detail::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 5px; height: 5px;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  border-radius: 50%;
+}
+.edu-typed {
+  min-height: 1.7em;
+  visibility: hidden;
+}
+.edu-typed.typing,
+.edu-typed.done {
+  visibility: visible;
+}
+.edu-typed.typing::after {
+  content: '|';
+  color: #d97706;
+  font-weight: 400;
+  animation: edu-blink 0.6s step-end infinite;
+}
+@keyframes edu-blink {
+  50% { opacity: 0; }
+}
+.edu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.edu-tags span {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: #fef3c7;
+  border-radius: 5px;
+  color: #b45309;
+  transition: all 0.2s;
+}
+.edu-tags span:hover { background: #d97706; color: #fff; }
 /* research: warm amber */
 #research          { background: #fffaf3; }
 #research .section-title::before { background: linear-gradient(180deg, #f59e0b, #fbbf24); }
@@ -283,6 +376,7 @@ nav ul a:hover { color: var(--text); background: rgba(0,0,0,0.04); text-decorati
 }
 .hero-typed .word {
   display: inline-block;
+  margin-right: 0.3em;
   opacity: 0;
   transform: translateY(8px);
   filter: blur(4px);
@@ -460,6 +554,24 @@ section:last-of-type { border-bottom: none; }
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-soft);
+}
+.skill-group {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s;
+}
+.skill-group.visible {
+  opacity: 1;
+  transform: none;
+}
+.skill-tag {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s, color 0.2s, background 0.2s;
+}
+.skill-tag.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ========== EXPERIENCE ========== */
@@ -710,6 +822,38 @@ section:last-of-type { border-bottom: none; }
   font-size: 14px;
   color: var(--text-3);
   line-height: 1.65;
+}
+
+.pub-summary .st {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s;
+}
+.pub-summary .st.visible {
+  opacity: 1;
+  transform: none;
+}
+.pub-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.pub-item.visible {
+  opacity: 1;
+  transform: none;
+}
+.pub-item h3,
+.pub-item .pub-meta,
+.pub-item .pub-desc {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.pub-item.visible h3,
+.pub-item.visible .pub-meta,
+.pub-item.visible .pub-desc {
+  opacity: 1;
+  transform: none;
 }
 
 /* ========== PROJECTS ========== */
@@ -1022,8 +1166,8 @@ footer {
   .hero-links a { justify-content: center; }
   .section-title { font-size: 20px; }
   .pub-item { padding: 20px 16px; }
-  #education .edu-header { flex-direction: column; gap: 2px; }
-  #education .edu-card { padding: 20px 16px; }
+  .edu-card { padding: 20px 16px; }
+  .edu-header { flex-direction: column; gap: 2px; }
   .contact-section h2 { font-size: 30px; }
   .main-wrap { border-left: none; border-right: none; }
   .main-wrap::before, .main-wrap::after { display: none; }
@@ -1325,20 +1469,27 @@ footer {
 
     <div class="edu-card fade-in">
       <div class="edu-header">
-        <div class="edu-degree">B.Sc. in Electrical &amp; Electronic Engineering</div>
-        <div class="edu-date">2017 &mdash; 2022</div>
+        <div class="edu-degree">B.Sc. in Mechatronics Engineering</div>
+        <div class="edu-date">2017 &mdash; 2023</div>
       </div>
       <div class="edu-school">Rajshahi University of Engineering &amp; Technology (RUET)</div>
-      <div class="edu-location">Rajshahi, Bangladesh</div>
-      <div class="edu-detail">Specialized in power systems, signal processing, and machine learning.</div>
-      <div class="edu-detail">Undergraduate thesis on deep learning for transformer health evaluation &mdash; later published in a Q1 journal.</div>
-      <div class="edu-detail">Active member of the Control System Research Group (CSRG).</div>
+      <div class="edu-meta">
+        <span>Rajshahi, Bangladesh</span>
+        <span class="dot"></span>
+        <span>First Class</span>
+      </div>
+      <div class="edu-detail edu-typed" id="edu-line-0"></div>
+      <div class="edu-detail edu-typed" id="edu-line-1"></div>
+      <div class="edu-detail edu-typed" id="edu-line-2"></div>
+      <div class="edu-detail edu-typed" id="edu-line-3"></div>
       <div class="edu-tags">
+        <span>Control Systems</span>
+        <span>Robotics</span>
         <span>Signal Processing</span>
         <span>Machine Learning</span>
-        <span>Power Systems</span>
         <span>Deep Learning</span>
-        <span>Research</span>
+        <span>Python</span>
+        <span>MATLAB</span>
       </div>
     </div>
 
@@ -1353,14 +1504,14 @@ footer {
     <h2 class="section-title fade-in">Research &amp; Publications</h2>
     <p class="section-sub fade-in">Published work in AI and power systems</p>
 
-    <div class="pub-summary fade-in">
-      <div class="st"><div class="v">3</div><div class="l">Papers</div></div>
-      <div class="st"><div class="v">100+</div><div class="l">Citations</div></div>
-      <div class="st"><div class="v">2</div><div class="l">Q1 Journals</div></div>
-      <div class="st"><div class="v">3.82</div><div class="l">Max IF</div></div>
+    <div class="pub-summary" id="pub-stats">
+      <div class="st"><div class="v" data-target="3">0</div><div class="l">Papers</div></div>
+      <div class="st"><div class="v" data-target="100" data-suffix="+">0</div><div class="l">Citations</div></div>
+      <div class="st"><div class="v" data-target="2">0</div><div class="l">Q1 Journals</div></div>
+      <div class="st"><div class="v" data-target="3.82" data-decimal="true">0</div><div class="l">Max IF</div></div>
     </div>
 
-    <div class="pub-item fade-in">
+    <div class="pub-item">
       <h3>Power Transformer Health Condition Evaluation: A Deep Generative Model Aided Intelligent Framework</h3>
       <div class="pub-meta">
         <span>2023</span>
@@ -1373,7 +1524,7 @@ footer {
       <p class="pub-desc">A deep generative model-aided intelligent framework for evaluating power transformer health. Combines test-series analysis with learned representations to derive a robust health index.</p>
     </div>
 
-    <div class="pub-item fade-in">
+    <div class="pub-item">
       <h3>Energy Sustainability &mdash; Survey on Technology and Control of Microgrid, Smart Grid and Virtual Power Plant</h3>
       <div class="pub-meta">
         <span>2021</span>
@@ -1386,7 +1537,7 @@ footer {
       <p class="pub-desc">A comprehensive survey of microgrid, smart-grid, and virtual power plant architectures examining control strategies for renewable-energy integration and grid security.</p>
     </div>
 
-    <div class="pub-item fade-in">
+    <div class="pub-item">
       <h3>Deep Learning Techniques for Transmission Line Fault Diagnosis: A Comparative Evaluation</h3>
       <div class="pub-meta">
         <span>2018</span>
@@ -1592,6 +1743,28 @@ const aboutObs = new IntersectionObserver((entries) => {
 const aboutEl = document.getElementById('about-text');
 if (aboutEl) aboutObs.observe(aboutEl);
 
+// Skills staggered reveal
+const skillsWrap = document.querySelector('.skills-wrap');
+if (skillsWrap) {
+  const skillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const groups = e.target.querySelectorAll('.skill-group');
+      groups.forEach((group, gi) => {
+        setTimeout(() => {
+          group.classList.add('visible');
+          const tags = group.querySelectorAll('.skill-tag');
+          tags.forEach((tag, ti) => {
+            setTimeout(() => tag.classList.add('visible'), ti * 60);
+          });
+        }, gi * 150);
+      });
+      skillObs.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+  skillObs.observe(skillsWrap);
+}
+
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1616,6 +1789,109 @@ const xpObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.xp-item').forEach(el => xpObs.observe(el));
+
+// Research stats count-up + staggered reveal
+(() => {
+  const pubStats = document.getElementById('pub-stats');
+  if (!pubStats) return;
+  const sts = pubStats.querySelectorAll('.st');
+  let fired = false;
+
+  function countUp(el, target, isDecimal, suffix) {
+    const duration = 1500;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      const val = isDecimal
+        ? (target * ease).toFixed(2)
+        : Math.round(target * ease);
+      el.textContent = val + (suffix || '');
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = (isDecimal ? target.toFixed(2) : target) + (suffix || '');
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const pubStatsObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || fired) return;
+      fired = true;
+      sts.forEach((st, i) => {
+        setTimeout(() => {
+          st.classList.add('visible');
+          const v = st.querySelector('.v');
+          const target = parseFloat(v.dataset.target);
+          const suffix = v.dataset.suffix || '';
+          const isDecimal = v.dataset.decimal === 'true';
+          countUp(v, target, isDecimal, suffix);
+        }, i * 150);
+      });
+    });
+  }, { threshold: 0.3 });
+  pubStatsObs.observe(pubStats);
+})();
+
+// Research pub-items staggered reveal
+const pubObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    const children = e.target.querySelectorAll('h3, .pub-meta, .pub-desc');
+    children.forEach((child, i) => {
+      child.style.transitionDelay = `${(i + 1) * 120}ms`;
+    });
+    pubObs.unobserve(e.target);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.pub-item').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 200}ms`;
+  pubObs.observe(el);
+});
+
+// Education typing animation
+(() => {
+  const lines = [
+    'Coursework in control systems, robotics, signal processing, and machine learning.',
+    'Thesis on deep learning for power transformer health evaluation — later published in a Q1 journal.',
+    'Published 3 research papers with 100+ citations across Q1 & Q2 journals.',
+    'Active member of the Control System Research Group (CSRG).'
+  ];
+  const els = lines.map((_, i) => document.getElementById('edu-line-' + i));
+  let lineIdx = 0;
+
+  function typeLine(idx) {
+    if (idx >= lines.length) return;
+    const el = els[idx];
+    const text = lines[idx];
+    let charIdx = 0;
+    el.classList.add('typing');
+    function typeChar() {
+      if (charIdx <= text.length) {
+        el.textContent = text.slice(0, charIdx);
+        charIdx++;
+        setTimeout(typeChar, 22);
+      } else {
+        el.classList.add('done');
+        el.classList.remove('typing');
+        typeLine(idx + 1);
+      }
+    }
+    typeChar();
+  }
+
+  const eduCard = els[0] && els[0].closest('.edu-card');
+  if (eduCard) {
+    const eduObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        typeLine(0);
+        eduObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    eduObs.observe(eduCard);
+  }
+})();
 
 // LeetCode data — update with your real numbers
 const lc = { easy: 120, medium: 85, hard: 25 };
